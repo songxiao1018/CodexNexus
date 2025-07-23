@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>博客主页</title>
+    <!-- 保留原有样式 -->
+     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></link>
+</head>
+<body>
+    <!-- 左侧导航 -->
+    <div class="sidebar">
+        <!-- 登录状态区域 -->
+        <div id="loginArea">
+            <div class="nav-item" onclick="showLoginForm()">登录</div>
+        </div>
+        
+        <div class="nav-header">文章目录</div>
+        {% for article in articles %}
+        <div class="nav-item" onclick="loadArticle('{{ article }}')">{{ article }}</div>
+        {% endfor %}
+        
+    </div>
+
+    <!-- 中间文章 -->
+    <div class="article-container">
+        <div class="article-paper" id="articleContent">
+            
+            <h1>欢迎来到未来引擎！</h1>
+
+            <p>这里是未来引擎的主页，在这里，您可以查看我们的在线导学案。</p>
+
+            <p>本站目前支持C++/Python的在线学案阅读和体验</p>
+
+            <h2 id="articleTitle"></h2>
+            <p></p>
+        </div>
+    </div>
+
+    <!-- 右侧聊天 -->
+    <div class="chat-container">
+        <div class="chat-header">
+            <h3>AI 助手</h3>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                <div class="message-content">
+                    你好！我是AI助手，有什么可以帮您的吗？
+                </div>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="输入问题..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">发送</button>
+        </div>
+    </div>
+
+    <div id="loginOverlay" class="overlay">
+        <div class="login-container">
+            <h3>登录</h3>
+            <div class="form-group">
+                <label for="username">用户名</label>
+                <input type="text" id="username" placeholder="输入用户名">
+            </div>
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input type="password" id="password" placeholder="输入密码">
+            </div>
+            <button onclick="loginToCodeCin()">登录</button>
+            <button onclick="hideLoginForm()" class="cancel">取消</button>
+            <div id="loginMessage" class="message"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        Powered by Hydro
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
