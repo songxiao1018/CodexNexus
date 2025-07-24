@@ -192,4 +192,4 @@ def logout_codecin():
 
 if __name__ == '__main__':
     # 启动Flask开发服务器
-    app.run(debug=True)
+    app.run(debug=True,port=3333,host="0.0.0.0")
