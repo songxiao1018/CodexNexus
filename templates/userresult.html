@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>未来引擎 查询学院状态信息</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 10%;
+        }
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        img {
+            /* 修改图片宽度为屏幕宽度的80% */
+            width: 100%;
+            max-width: 100%; /* 确保不超过容器限制 */
+            height: auto; /* 保持宽高比 */
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            display: block; /* 确保居中显示 */
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+
+
+
+<body>
+    <div class="container">
+        <h1>未来引擎 查询学员状态信息</h1>
+        
+        <form method="POST">
+            <input type="text" name="image_name" placeholder="输入小朋友姓名" required>
+            <button type="submit">查询</button>
+        </form>
+        
+        <img src="{{ url_for('static', filename=image_file) }}" alt="{{ image_file }}" 
+             onerror="this.onerror=null;this.src='{{ url_for('static', filename='test.png') }}'">
+    </div>
+</body>
+</html>

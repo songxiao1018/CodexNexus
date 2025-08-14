@@ -24,16 +24,42 @@
     <div class="article-container">
         <div class="article-paper" id="articleContent">
             
-            <h1>欢迎来到未来引擎！</h1>
+            <h1 style="text-align: center; margin-bottom: 20px;">✨ 欢迎来到未来引擎！</h1>
 
-            <p>这里是未来引擎的主页，在这里，您可以查看我们的在线导学案。</p>
+
+            <p>这里是未来引擎的在线学案项目主页，在这里，您可以查看我们的在线导学案。</p>
 
             <p>本站目前支持C++/Python的在线学案阅读和体验</p>
 
-            <h2 id="articleTitle"></h2>
-            <p></p>
+            
+            <!-- 收藏网页按钮矩阵 -->
+            <h1 style="text-align: center; margin-bottom: 20px;">✨ 常用收藏</h1>
+            
+            {% for row in bookmarks %}
+                <div class="bookmark-row">
+                    {% for site in row %}
+                        <a href="{{ site.url }}" target="_blank" class="bookmark-button">
+                            {{ site.name }}
+                        </a>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+            <!-- 保留 articleTitle 用于后续加载文章 -->
+            <h2 id="articleTitle" style="display: none;"></h2>
+
+
         </div>
     </div>
+
+
+
+
+
+
+
+
+
 
     <!-- 右侧聊天 -->
     <div class="chat-container">

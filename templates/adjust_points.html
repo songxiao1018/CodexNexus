@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生积分调整</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='score_style.css') }}">
+    <style>
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        /* 修复高度问题 - 统一所有输入元素高度 */
+        input[type="text"],
+        input[type="number"],
+        select,
+        button {
+            height: 40px; /* 统一高度 */
+            box-sizing: border-box; /* 确保内边距不影响高度 */
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .operation-group {
+            display: flex;
+            gap: 10px;
+        }
+        .operation-group select {
+            flex: 1;
+        }
+        .operation-group input {
+            flex: 2;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 0 15px; /* 调整内边距 */
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        /* 底部按钮容器 */
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .button-container .btn {
+            width: auto;
+            padding: 10px 20px;
+        }
+        .btn-green {
+            background-color: #28a745;
+        }
+        .btn-green:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>学生积分调整</h1>
+        
+        <div class="form-container">
+            {% if success %}
+            <div class="message success">{{ success }}</div>
+            {% endif %}
+            
+            {% if error %}
+            <div class="message error">{{ error }}</div>
+            {% endif %}
+            
+            <form method="POST">
+                <div class="form-group">
+                    <label for="student_name">学生姓名</label>
+                    <input type="text" id="student_name" name="student_name" required>
+                </div>
+                
+                <div class="form-group operation-group">
+                    <select name="operation" required>
+                        <option value="add">加分</option>
+                        <option value="deduct">扣分</option>
+                    </select>
+                    <input type="number" name="points_value" min="1" value="1" required>
+                </div>
+                
+                <button type="submit" class="btn">提交调整</button>
+            </form>
+        </div>
+        
+        <div class="button-container">
+            <a href="/class" class="btn">返回上课</a>
+            <a href="/all_points" class="btn btn-green">查看积分榜</a>
+            <a href="/" class="btn btn-primary">返回主页</a>
+        </div>
+    </div>
+</body>
+</html>

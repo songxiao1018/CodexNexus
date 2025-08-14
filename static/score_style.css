@@ -1,0 +1,197 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    color: #2c3e50;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    min-height: 80px;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+#points-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#points-table th, #points-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+#points-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+#student-select {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.student-item {
+    display: flex;
+    align-items: center;
+}
+
+.student-item input {
+    width: auto;
+    margin-right: 5px;
+}
+
+.point-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-points {
+    flex: 1;
+    padding: 12px;
+    background-color: #2ecc71;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-points:hover {
+    background-color: #27ae60;
+}
+
+#custom-points {
+    display: flex;
+    gap: 10px;
+}
+
+#custom-points-input {
+    flex: 1;
+}
+
+#confirm-custom {
+    width: 100px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.form-group:first-child {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+select:hover {
+    border-color: #3498db;
+}
+
+select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* 在原有样式后面添加 */
+
+#all-points-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#all-points-table th, #all-points-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+#all-points-table th {
+    background-color: #3498db;
+    color: white;
+    font-weight: 600;
+}
+
+#all-points-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+#all-points-table tbody tr:first-child {
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #fff8e1;
+}
+
+#all-points-table tbody tr:nth-child(2) {
+    background-color: #f5f5f5;
+}
+
+#all-points-table tbody tr:nth-child(3) {
+    background-color: #eee;
+}

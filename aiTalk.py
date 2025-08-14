@@ -159,7 +159,7 @@ def ai_chat(message):
         ]
     }
     headers = {
-        "Authorization": "Bearer <API KEY>",
+        "Authorization": "Bearer sk-xxxxxxxxxxxxxxxxxxx", # 请填写API-KEY
         "Content-Type": "application/json"
     }
 
@@ -189,6 +189,8 @@ def get_ai_response(message):
     
     if len(message) < 5 or not is_valid_question(message):
         return "请发送有效消息"
+    
+    return message[::-1]  # 防止恶意脚本消耗余量，实际工作请删除
     
     # 清理60分钟前的旧请求 (3600秒 = 60分钟)
     while request_history and current_time - request_history[0] > 3000:

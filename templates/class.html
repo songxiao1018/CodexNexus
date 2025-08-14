@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生积分管理系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='score_style.css') }}">
+</head>
+<body>
+    <!-- 在 <body> 开头添加 -->
+    <div class="container">
+        <div style="margin-bottom: 20px; text-align: right;">
+            <a href="/all_points" class="btn btn-primary">查看总积分榜</a>
+            <a href="/adjust_points" class="btn">学生积分调整</a>
+            <a href="/" class="btn btn-primary">返回主页</a>
+        </div>
+        
+        <h1>学生积分管理系统</h1>
+        
+        <!-- 课程设置区域 -->
+        <div id="course-setup" class="card">
+            <h2>课程设置</h2>
+
+            <!-- 历史课程选择 -->
+            <div class="form-group">
+                <label for="history-courses">选择历史课程:</label>
+                <select id="history-courses" class="form-control">
+                    <option value="">-- 选择历史课程 --</option>
+                    <!-- 历史课程选项将通过JS动态添加 -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="course-name">课程名称:</label>
+                <input type="text" id="course-name" placeholder="输入课程名称">
+            </div>
+            <div class="form-group">
+                <label for="course-date">课程日期:</label>
+                <input type="date" id="course-date">
+            </div>
+            <div class="form-group">
+                <label for="students">上课人员:</label>
+                <textarea id="students" placeholder="用逗号分隔学生姓名 (例如: 张三,李四,王五)"></textarea>
+            </div>
+            <button id="start-course" class="btn btn-primary">开始课程</button>
+        </div>
+        
+        <!-- 积分显示区域 -->
+        <div id="points-display" class="card" style="display:none;">
+            <h2>
+                <span id="display-course-name"></span> - 
+                <span id="display-course-date"></span>
+            </h2>
+            
+            <table id="points-table">
+                <thead>
+                    <tr>
+                        <th>学生姓名</th>
+                        <th>总积分</th>
+                        <th>今日积分</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        
+        <!-- 快捷加分区域 -->
+        <div id="quick-points" class="card" style="display:none;">
+            <h2>快捷加分</h2>
+            <div id="student-select">
+                <!-- 学生选择区将在JS中动态生成 -->
+            </div>
+            
+            <div class="point-buttons">
+                <button class="btn-points" data-points="1">+1</button>
+                <button class="btn-points" data-points="2">+2</button>
+                <button class="btn-points" data-points="3">+3</button>
+                <button class="btn-points" data-points="5">+5</button>
+                <button class="btn-points" data-points="custom">自定义</button>
+            </div>
+            
+            <!-- 自定义积分输入 -->
+            <div id="custom-points" style="display:none; margin-top:15px;">
+                <input type="number" id="custom-points-input" min="1" placeholder="输入积分值">
+                <button id="confirm-custom" class="btn btn-primary">确认</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='score_script.js') }}"></script>
+</body>
+</html>

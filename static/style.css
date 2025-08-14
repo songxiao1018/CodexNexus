@@ -459,3 +459,47 @@ table tr:last-child {
   .codehilite { padding-left: 45px; }
   .codehilite .line::before { left: -40px; width: 30px; }
 }
+
+
+/* 收藏按钮样式 */
+.bookmark-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.bookmark-button {
+    background-color: #4361ee; /* 蓝色主题，可换 */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 15px;
+    min-width: 120px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.bookmark-button:hover {
+    background-color: #3a56d4;
+    transform: translateY(-2px);
+}
+
+.bookmark-button:active {
+    transform: translateY(0);
+}
+
+/* 小屏幕适配 */
+@media (max-width: 768px) {
+    .bookmark-button {
+        padding: 10px 16px;
+        font-size: 14px;
+        min-width: 100px;
+    }
+    .bookmark-row {
+        gap: 10px;
+    }
+}
